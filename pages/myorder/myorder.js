@@ -1,12 +1,13 @@
 // pages/PC-1/myorder.js
 const api = require('../../api/api.js')
+import { $wuxDialog } from '../../wux/index'
 Page({
     data: {
         // tab切换
         currentTab: 0,
         orderList: [],
         height: '650rpx',
-        orderStatus: 0 //订单状态(0、待分配、1、待接单，2、待维修，3、正在维修，4、已评价，5、取消订单,6、已完成)
+        orderStatus: '' //订单状态(0、待分配、1、待接单，2、待维修，3、正在维修，4、已评价，5、取消订单,6、已完成)
     },
     swichNav: function (e) {
         var that = this;
@@ -63,7 +64,7 @@ Page({
     },
     getOrderList(orderStatus) {
         let params = {}
-        if (orderStatus == null) {
+        if (orderStatus === undefined || orderStatus === null) {
             params.userId = "1"
         } else {
             params.userId = "1"
@@ -78,5 +79,54 @@ Page({
             }
         }).catch(e => {
         })
+    },
+    cancelOrder(e){
+        let that = this
+        let orderId = e.target.dataset.orderid
+        $wuxDialog().confirm({
+            resetOnClose: true,
+            closable: true,
+            title: '提示',
+            content: '确定要删除此订单吗？',
+            onConfirm(e) {
+                let params = {
+                    orderId: orderId
+                }
+                api._post('/front/order/cancelOrder', params).then(res => {
+                    if (res.status === 200) {
+                        that.getOrderList(that.data.orderStatus)
+                    }
+                })
+            },
+            onCancel(e) {
+            },
+        })
+    },
+    finishRepair(e){
+        let that = this
+        let orderId = e.target.dataset.orderid
+        $wuxDialog().confirm({
+            resetOnClose: true,
+            closable: true,
+            title: '提示',
+            content: '确定维修完成吗？',
+            onConfirm(e) {
+                let params = {
+                    orderId: orderId
+                }
+                api._post('/front/order/finishRepair', params).then(res => {
+                    if (res.status === 200) {
+                        that.getOrderList(that.data.orderStatus)
+                    }
+                })
+            },
+            onCancel(e) {
+            },
+        })
+    },
+    jumpToEvaluate(e) {
+        let that = this
+        let orderId = e.target.dataset.orderid
+
     }
 })

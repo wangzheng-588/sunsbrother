@@ -6,7 +6,7 @@
     <view class='admin'>A.R.M.Y</view>
 </view>
 <view>
-    <navigator url="/pages/" hover-class="navigator-hover">
+    <navigator url="/pages/myorder/myorder" hover-class="navigator-hover">
         <view class='list'>订单管理</view>
     </navigator>
 

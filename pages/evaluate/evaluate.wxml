@@ -1,0 +1,29 @@
+<!--pages/rep-order/evaluate.wxml-->
+<view style="height: 100%;width: 100%;">
+    <view class='evaluate' >
+        <text class="orderid">预约编号：{{orderId}}</text>
+        <view class='item'>
+            <image class="head" src='/icon/家居-空调.png'></image>
+            <view style="display: flex;flex-direction: column;margin-left: 20rpx">
+                <text class='up'>{{order.orderCateName}}-{{order.orderBraName}}-{{order.orderType?'安装':'维修'}}</text>
+                <text class='middle'>{{order.orderFailureCause}}</text>
+                <view class='down'>维修师傅：
+                    <text class="price">{{order.orderSerName}}</text>
+                </view>
+            </view>
+        </view>
+        <wux-cell-group>
+            <wux-cell class="rater" title="问题处理" hover-class="none">
+                <wux-rater slot="footer" default-value="{{ 0 }}" bind:change="sliderProblemChange"/>
+            </wux-cell>
+            <wux-cell class="rater" title="上门速度" hover-class="none">
+                <wux-rater slot="footer" default-value="{{ 0 }}" bind:change="sliderSpeedChange"/>
+            </wux-cell>
+            <wux-cell class="rater" title="服务态度" hover-class="none">
+                <wux-rater slot="footer" default-value="{{ 0 }}" bind:change="sliderSerChange"/>
+            </wux-cell>
+        </wux-cell-group>
+    </view>
+    <button bindtap="evaluateSerman" style="position: fixed;bottom: 0;width: 100%;left: 0">提交评价</button>
+</view>
+

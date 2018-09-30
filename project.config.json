@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -55,9 +55,15 @@
 				},
 				{
 					"id": 3,
-					"name": "pc1",
-					"pathName": "pages/myorder/myorder",
+					"name": "pc2",
+					"pathName": "pages/PC-2/PC-2",
 					"query": "pc2"
+				},
+				{
+					"id": -1,
+					"name": "evaluate",
+					"pathName": "pages/evaluate/evaluate",
+					"query": ""
 				}
 			]
 		}

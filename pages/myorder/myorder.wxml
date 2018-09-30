@@ -1,6 +1,7 @@
 <!--pages/PC-1/myorder.wxml-->
 
 <view class='container'>
+    <wux-dialog id="wux-dialog" />
     <view class="head">
         <!--顶部导航栏-->
         <view class="swiper-tab">
@@ -39,14 +40,17 @@
                         </view>
                     </view>
                 </view>
-                <button wx:if="{{item.orderStatus === 0}}" class="button">取消订单</button>
+                <button wx:if="{{item.orderStatus === 0}}" bindtap="cancelOrder" data-orderId="{{item.orderId}}" class="button">取消订单</button>
                 <view wx:if="{{item.orderStatus === 1}}">
-                    <button  class="button">取消订单</button>
+                    <button  class="button" bindtap="cancelOrder" data-orderId="{{item.orderId}}">取消订单</button>
                     <button  class="button">催接单</button>
                 </view>
                 <button wx:if="{{item.orderStatus === 2}}" class="button">购买服务</button>
-                <button wx:if="{{item.orderStatus === 3}}" class="button">维修完成</button>
-                <button wx:if="{{item.orderStatus === 4}}" class="button">评价</button>
+                <button wx:if="{{item.orderStatus === 3}}" bindtap="finishRepair" data-orderId="{{item.orderId}}" class="button">维修完成</button>
+                <navigator url="../evaluate/evaluate?serId={{item.orderSerId}}&orderId={{item.orderId}}">
+                    <button wx:if="{{item.orderStatus === 4}}" class="button">评价</button>
+                </navigator>
+
                 <button wx:if="{{item.orderStatus === 7}}" class="button">付款</button>
                 <view style="clear:both"></view>
             </view>
