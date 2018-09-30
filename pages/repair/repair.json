@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "维修",
+  "usingComponents": {
+    "wux-upload": "/wux/upload/index",
+    "wux-icon": "/wux/icon/index",
+    "wux-button": "/wux/button/index"
+  }
+}

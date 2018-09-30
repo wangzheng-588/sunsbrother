@@ -1,0 +1,94 @@
+<!-- pages/repair/repair.wxml -->
+<form bindsubmit='subscribe'>
+    <scroll-view style="background: #ffffff">
+        <view class='container'>
+            <view class='title'>购买渠道：</view>
+            <view class='reason'>
+                <view class="res {{!isSuns?'channel-active':''}}" data-isSuns="0" bindtap='handlerisSuns'>
+                    泫氏
+                </view>
+                <view class="res {{isSuns?'channel-active':''}}" style="margin-left:20rpx" data-isSuns="1"
+                      bindtap='handlerisSuns'>
+                    其他
+                </view>
+            </view>
+            <view class='title'>保修期限：</view>
+            <view class='reason'>
+                <view class="res {{!isexpiration?'repair-active':''}}" data-isExpiration="0" bindtap='handlerIsExpiration'>
+                    保修期内
+                </view>
+                <view class="res {{isexpiration?'repair-active':''}}" style="margin-left:20rpx" data-isExpiration="1"
+                      bindtap='handlerIsExpiration'>
+                    保修期外
+                </view>
+            </view>
+            <view wx-if="{{!isexpiration}}">
+                <view class='title'>拍照上传：</view>
+                <wux-upload list-type="picture-card" file-list="{{ uploadVoucherPhotos }}"
+                            url="http://localhost:8089/upload/uploadVoucherImg" bind:change="onChange" bind:success="onSuccess"
+                            showRemoveIcon="{{showRemoveIcon}}"
+                            bind:fail="onFail" bind:complete="onComplete" bind:preview="onRemove">
+                    <text>Upload</text>
+                </wux-upload>
+                <view class='text'>请上传保修凭证、购物凭证(最多可上传3张图片)</view>
+            </view>
+
+            <view class='message'>
+                <text class='message-item-title'>联系人姓名：</text>
+                <input class='message-item-title' type='text' placeholder='请填写联系人姓名' name='username'></input>
+            </view>
+            <view class='message'>
+                联系人电话：
+                <input class='ms' type='phone' placeholder='请填写联系人电话' name='phone'></input>
+            </view>
+            <view class='message'>
+                <text class='message-item-title'>联系人地址：</text>
+                <input class='ms' type='text' placeholder='请填写联系人地址' name='address'></input>
+                <image src='/icon/定位.png' class='location' bindtamp="getCenterLocation"></image>
+            </view>
+            <view class='message'>
+                <text class='message-item-title'>预约时间：</text>
+                <view class="section">
+                    <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime"
+                            bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray}}">
+                        <view class="tui-picker-detail">
+                            {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}}
+                            {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='message'>
+                <view>故障原因：</view>
+            </view>
+            <view class='fail-case'>
+            <span class="{{item.checked? 'fail-active': 'fail-case-item'}}" wx:for="{{failList}}" wx:key="index"
+                  data-index="{{index}}" bindtap='selectFail'>
+                {{item.fcName}}
+            </span>
+            </view>
+            <view class='remarks'>
+                <textarea class='rm' placeholder='其他原因' name='remark'></textarea>
+            </view>
+            <view class='title'>拍照上传：</view>
+            <wux-upload list-type="picture-card" file-list="{{ uploadFailPhotos }}"
+                        url="http://localhost:8089/upload/uploadVoucherImg" bind:change="onFailChange" bind:success="onFailSuccess"
+                        showRemoveIcon="{{showRemoveIcon}}"
+                        bind:fail="onFailFail" bind:complete="onFailComplete" bind:preview="onFailRemove">
+                <text>Upload</text>
+            </wux-upload>
+            <view class='text'>最多可上传5张照片，支持JPG、PNG</view>
+            <view class='cost'>预约定金：¥50</view>
+            <view class='prompt'>
+                <text>
+                    温馨提示：
+                    安装完成之后，将费用支付至平台，泫氏将为您保证15天的s售后维修保障，若与安装师傅私下交易，j将不享受泫氏的任何承诺。
+                </text>
+            </view>
+        </view>
+
+        <view class="button">
+            <button form-type='submit'>立即预约</button>
+        </view>
+    </scroll-view>
+</form>

@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/home/home",
+    "pages/logs/logs",
+    "pages/category/category",
+    "pages/install/install",
+    "pages/brand/brand",
+    "pages/PC-1/PC-1",
+    "pages/PC-2/PC-2",
+    "pages/repair/repair",
+    "pages/repairman/repairman",
+    "pages/rep-order/rep-order",
+    "pages/login/login"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "泫氏小哥",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "selectedColor":"#4F8FFB",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text":"首页",
+      "iconPath":"/images/ic_home_normal.png",
+      "selectedIconPath":"/images/ic_home_pressed.png"
+    },
+    {
+      "pagePath": "pages/category/category",
+      "text": "维修",
+      "iconPath": "/images/ic_repair_normal.png",
+      "selectedIconPath": "/images/ic_repair_pressed.png"
+    },
+    {
+      "pagePath": "pages/home/home",
+      "text": "个人中心",
+      "iconPath": "/images/ic_me_normal.png",
+      "selectedIconPath": "/images/ic_me_pressed.png"
+    }]
+  },
+  "usingComponents": {
+    "wux-icon": "/wux/icon/index",
+    "wux-button": "/wux/button/index"
+  },
+  "debug": true
+}

@@ -1,0 +1,145 @@
+/* pages/repair/repair.wxss */
+.container{
+  padding: 0rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  margin-top: 1px;
+}
+.title{
+  width: 100%;
+  height: 80rpx;
+  font-size:28rpx;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:80rpx;
+  display: flex;
+  align-items: center;
+}
+
+
+.channel-active{
+  box-sizing: border-box;
+  width: 250rpx;
+  height: 50rpx;
+  background:rgba(79,143,251,1);
+  border-radius:6px;
+  color: #FFF;
+  border: none
+}
+
+.fail-active{
+  box-sizing: border-box;
+  height: 50rpx;
+  padding: 0 11rpx 0 11rpx;
+  margin-left: 10rpx;
+  background:rgba(79,143,251,1);
+  border-radius:6px;
+  color: #FFF;
+  border: none;
+  font-size:24rpx;
+  text-align: center;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  line-height:50rpx;
+}
+
+.repair-active{
+  background:rgba(79,143,251,1);
+  border-radius:6px;
+  color: #FFF;
+  border: none
+}
+
+.service_selection .is_checked{
+  border: 1px solid #FE0002 ;
+  color: #FE0002 ;
+  background: #fff;
+}
+.service_selection .normal{
+  border: none;
+  color: #333;
+  background: #F0F1EC;
+}
+.shois_checked{
+  color: blue;
+  border:1px solid blue;
+}
+.prompt{
+  margin-bottom: 60rpx
+}
+
+.remarks{
+  padding-top: 22rpx;
+  display: flex;
+  background: #FFF;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  text-indent: 0.8rem;
+  box-sizing: border-box;
+}
+.rm{
+  border: #666666 1rpx solid;
+  width: 100%;
+  font-size:30rpx;
+  height: 270rpx;
+  color: #333333;
+  padding: 15rpx 0rpx 15rpx 0rpx
+}
+
+.wrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.fail-image{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+}
+.item-img{
+  margin-right: 20rpx;
+  width: 196rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center
+}
+
+.photo{
+  margin-left:20rpx;
+  height: 196rpx;
+  width: 196rpx;
+}
+
+.del-img{
+  height: 40rpx;
+  width: 40rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.fail-case{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fail-case-item{
+  box-sizing: border-box;
+  height: 50rpx;
+  padding: 0 10rpx 0 10rpx;
+  margin-left: 10rpx;
+  border:1px solid rgba(102,102,102,1);
+  border-radius:6px;
+  font-size:24rpx;
+  text-align: center;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:50rpx;
+}
+.button{
+  margin-top: 40rpx;
+}

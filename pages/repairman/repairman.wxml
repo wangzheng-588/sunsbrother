@@ -1,0 +1,20 @@
+<!--pages/repairman/repairman.wxml-->
+<view class='container'>
+  <view class='money l'>
+    ¥920
+    <view class='text'>当前余额</view>
+  </view>
+  <view class='money r'>
+    ¥200
+    <view class='text'>可提现余额</view>
+    <button>立即提现</button>
+  </view>
+</view>
+<view class='list'>
+    提现明细
+    <image src='/images/go.png'></image>
+  </view>
+  <view class='list'>
+    维修订单
+    <image src='/images/go.png'></image>
+  </view>

@@ -1,0 +1,20 @@
+<!-- pages/test/test.wxml -->
+<scroll-view class="brand" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" enable-back-to-top="true"  style="height:{{height}}px">
+  <view wx:for="{{act_addList}}" wx:key="index" wx:for-index="parentIndex">
+    <view class="brand_top" id="{{'inToView'+item.id}}">{{item.region}}</view>
+    <view wx:for="{{item.brands}}" wx:key="name">
+      <view class="bd {{item.branId==idx ?'active':''}}" bindtap='goIndex' wx:for-item="item" data-index="{{item.branId}}" data-name="{{item.branName}}">
+        {{item.branName}}
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='nav_region'>
+  <block wx:for="{{orientationList}}" wx:key="">
+    <view bindtap="scrollToViewFn" data-id="{{item.id}}">{{item.region}}</view>
+  </block>
+</view>
+<view class='footer'>
+  <view class="button" bindtap='jumpToInstallPage'>安装</view>
+  <view class="button r" bindtap='jumpToRepairPage'>维修</view>
+</view>

@@ -1,0 +1,40 @@
+<!-- pages/address/address.wxml -->
+<form bindsubmit='subscribe'>
+  <view class='container'>
+    <view class='message'>
+      联系人姓名：
+      <input class='ms' type='text' placeholder='请填写联系人姓名' name='username'></input>
+    </view>
+    <view class='message'>
+      联系人电话：
+      <input class='ms' type='phone' placeholder='请填写联系人电话' name='phone'></input>
+    </view>
+    <view class='message'>
+      联系人地址：
+      <input class='ms' type='text' placeholder='请填写联系人地址' name='address'></input>
+      <image src='/icon/定位.png' class='location' bindtamp="getCenterLocation"></image>
+    </view>
+    <view class='message'>
+      预 约 时 间：
+      <view class="section">
+        <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray}}">
+          <view class="tui-picker-detail">
+          {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='remarks'>
+      备注：
+      <textarea class='rm' placeholder='请填写备注' name='remark'></textarea>
+    </view>
+  </view>
+  <view class='cost'>预约定金：¥{{money}}</view>
+  <view class='prompt'>
+    <text>温馨提示：
+  安装完成之后，将费用支付至平台，泫氏将为您保证15天的售后维修保障，若与安装师傅私下交易，将不享受泫氏的任何承诺。</text>
+  </view>
+  <view class='footer'>
+    <button form-type='submit'>立即预约</button>
+  </view>
+</form>

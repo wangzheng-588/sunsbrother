@@ -1,0 +1,39 @@
+<swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+  <block wx:for="{{imgUrls}}" wx:key='index'>
+    <swiper-item>
+      <navigator hover-class="navigator-hover">
+        <image src="{{item.banImagePath}}" class="slide-image" />
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='list'>
+  <view wx:for="{{categoryList}}" wx:key='index' wx:for-item="item" data-index='{{index}}' bindtap="goToCatePage">
+    <view class='menu'>
+      <image src='{{item.cateImage}}'></image>{{item.cateName}}</view>
+  </view>
+  <view class='menu'  data-index='{{4}}' bindtap="goToCatePage">
+    <image src='/images/qt.png'></image>其他</view>
+</view>
+<view class='head'>特别推荐</view>
+<view class='container'>
+  <block wx:for="{{reProductList}}" wx:key='index'>
+    <view class='block'>
+      <view>
+        <text>{{item.proName}}</text>
+        <text>¥{{item.proPrice}}</text>
+      </view>
+      <view>
+        <image src='{{item.proImg}}'></image>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='head ad'>优质推荐</view>
+<view>
+  <view class='photo'>
+    <block wx:for="{{homeAdList}}" wx:key='index'>
+      <image src='{{item.advImage}}'></image>
+    </block>
+  </view>
+</view>

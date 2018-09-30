@@ -1,0 +1,30 @@
+<!-- 主盒子 -->
+<view class="container">
+  <!-- 菜单栏 -->
+  <view class="nav">
+    <block wx:for="{{cateItems}}" wx:key="index">
+      <!-- 当前项的id等于item项的id，那个就是当前状态 -->
+      <!-- 用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用 -->
+      <view class="nav_items {{curNav == item.cateId ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cateId}}">
+        {{item.cateName}}
+      </view>
+    </block>
+  </view>
+  <!-- 内容栏 -->
+  <view class="content">
+    <!-- 如果有数据，才遍历项 -->
+    <block wx:if="{{cateItems[curIndex].ishaveChild}}">
+      <block wx:for="{{cateItems[curIndex].children}}" wx:key="">
+        <view class="content_items">
+          <!-- 界面跳转 -->
+          <navigator url="../brand/brand?cateId={{item.cateId}}&cateName={{item.cateName}}&typeId={{item.cateTypeId}}">
+            <image src="{{item.cateImage}}"></image>
+            <text>{{item.cateName}}</text>
+          </navigator>
+        </view>
+      </block>
+    </block>
+    <!-- 如果无数据，则显示数据 -->
+    <view class="nodata_text" wx:else>该分类暂无数据</view>
+  </view>
+</view>
