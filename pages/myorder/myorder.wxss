@@ -1,0 +1,81 @@
+/* pages/PC-1/myorder.wxss */
+.head {
+  background: #FFF;
+}
+
+/*订单列表*/
+.order{
+  box-sizing: border-box;
+  padding: 10rpx;
+  width:690rpx;
+  background:#FFF;
+  border-radius:6px;
+  box-shadow:1px 0px 4px #999;
+  margin: auto;
+  margin-top: 20rpx;
+}
+.item{
+  margin-top: 30rpx;
+  display: flex;
+}
+
+.item image{
+  width:140rpx;
+  height:140rpx;
+}
+
+.title .up .middle .down{
+  font-weight:400;
+}
+.title{
+  color:#616466;
+  font-size:30rpx;
+  margin-top: 24rpx;
+  line-height: 70rpx;
+  margin-left: 20rpx;
+}
+.up{
+  font-size:30rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+.middle{
+  margin-top: 18rpx;
+  margin-bottom: 20rpx;
+  font-size:30rpx;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.down{
+  margin-bottom: 14rpx;
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+.price{
+  color: #F11A29;
+}
+.order-item-orderid{
+  flex: 1;
+  font-size:30rpx;
+  font-weight:400;
+  color:rgba(97,100,102,1);
+}
+.order-item-state{
+  font-size:30rpx;
+  font-weight:400;
+  color:rgba(241,26,41,1);
+}
+.button{
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  width:180rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size:30rpx;
+  font-weight:400;
+  background:rgba(79,143,251,1);
+  border-radius:6px;
+  float: right;
+}

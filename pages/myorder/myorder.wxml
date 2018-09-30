@@ -1,0 +1,56 @@
+<!--pages/PC-1/myorder.wxml-->
+
+<view class='container'>
+    <view class="head">
+        <!--顶部导航栏-->
+        <view class="swiper-tab">
+            <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部</view>
+            <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待接单</view>
+            <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待维修</view>
+            <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">正在维修</view>
+            <view class="tab-item {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">待评价</view>
+        </view>
+    </view>
+
+    <!--内容主体-->
+    <scroll-view style="height:{{height}};" scroll-y>
+        <view style="padding-bottom: 20rpx">
+            <view  wx:for="{{orderList}}" wx:key="index">
+                <view class='order'>
+                    <view class='title' style="display: flex;flex-direction: row">
+                        <text class="order-item-orderid">预约编号：{{item.orderId}}</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==0}}">未分配</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==1}}">待接单</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==2}}">待维修</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==3}}">正在维修</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==4}}">待评价</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==5}}">取消订单</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==6}}">已完成</text>
+                        <text class="order-item-state" wx:if="{{item.orderStatus==7}}">未付款</text>
+                    </view>
+                    <view class='item'>
+                        <image src='/icon/家居-空调.png'></image>
+                        <view style="display: flex;flex-direction: column;margin-left: 20rpx">
+                            <text class='up'>{{item.orderCateName}}-{{item.orderBraName}}-{{orderType?'安装':'维修'}}</text>
+                            <text class='middle'>{{item.orderFailureCause}}</text>
+                            <view class='down'>上门费用：
+                                <text class="price">￥{{item.orderServerPrice?item.orderServerPrice:0}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <button wx:if="{{item.orderStatus === 0}}" class="button">取消订单</button>
+                <view wx:if="{{item.orderStatus === 1}}">
+                    <button  class="button">取消订单</button>
+                    <button  class="button">催接单</button>
+                </view>
+                <button wx:if="{{item.orderStatus === 2}}" class="button">购买服务</button>
+                <button wx:if="{{item.orderStatus === 3}}" class="button">维修完成</button>
+                <button wx:if="{{item.orderStatus === 4}}" class="button">评价</button>
+                <button wx:if="{{item.orderStatus === 7}}" class="button">付款</button>
+                <view style="clear:both"></view>
+            </view>
+
+        </view>
+    </scroll-view>
+</view>

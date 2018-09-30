@@ -2,11 +2,10 @@
   "pages":[
     "pages/index/index",
     "pages/home/home",
-    "pages/logs/logs",
     "pages/category/category",
     "pages/install/install",
     "pages/brand/brand",
-    "pages/PC-1/PC-1",
+    "pages/myorder/myorder",
     "pages/PC-2/PC-2",
     "pages/repair/repair",
     "pages/repairman/repairman",
