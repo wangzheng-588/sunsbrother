@@ -82,7 +82,7 @@ Page({
         let params = {
             typeId: this.data.typeId
         }
-        api._post('/front/failure/getFailureList', params)
+        api._post('/front/failure/getFailureList',app.globalData.accessToken, params)
             .then(res => {
                 let list = res.data
                 this.setData({
@@ -213,7 +213,7 @@ Page({
             photosStr: photosStr,
             voucherImages: voucherImages
         }
-        api._post('/front/order/submitOrder', params).then(res => {
+        api._post('/front/order/submitOrder',app.globalData.accessToken, params).then(res => {
             if (res.status === 200) {
                 let orderId = res.data
                 let params = {
@@ -227,7 +227,7 @@ Page({
                     orderId: orderId,
                     total: 1
                 }
-                api._post('/front/pay/wxPayTemp', payTemppara).then(res => {
+                api._post('/front/pay/wxPayTemp',app.globalData.accessToken, payTemppara).then(res => {
                     if (res.status === 200) {
                         wx.switchTab({
                             url: '../index/index',

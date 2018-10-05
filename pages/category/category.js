@@ -1,6 +1,6 @@
 const app = getApp()
 const api = require('../../api/api.js')
-Page({ 
+Page({
     data: {
       cateItems: [],
       curNav: 1,
@@ -11,7 +11,7 @@ Page({
     let index = e.index
     // 获取一级分类
     var that = this
-    api._post('/front/category/getCategoryList').then(res => {
+    api._post('/front/category/getCategoryList',app.globalData.accessToken).then(res => {
       console.log(res)
      let cateList = res.data
       for (let i = 0;i<cateList.length;i++) {
@@ -29,15 +29,15 @@ Page({
     }).catch(e => {
     })
   },
-    //事件处理函数  
+    //事件处理函数
     switchRightTab: function (e) {
-    // 获取item项的id，和数组的下标值  
+    // 获取item项的id，和数组的下标值
     let id = e.target.dataset.id,
     index = parseInt(e.target.dataset.index);
-    // 把点击到的某一项，设为当前index  
+    // 把点击到的某一项，设为当前index
     this.setData({
       curNav: id,
       curIndex: index
     })
   }
-}) 
+})

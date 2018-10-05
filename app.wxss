@@ -24,10 +24,8 @@ page{
   vertical-align: center;
 }
 .ms{
-  height: 38rpx;
   float: left;
   font-size:30rpx;
-  font-family:MicrosoftYaHei;
   font-weight:400;
   color:#333;
 }

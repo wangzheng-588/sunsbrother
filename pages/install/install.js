@@ -95,7 +95,7 @@ Page({
       appointmentTime: time,
       orderRemark: remark
     }
-    api._post('/front/order/submitOrder', params).then(res => {
+    api._post('/front/order/submitOrder',app.globalData.accessToken, params).then(res => {
       if (res.status === 200) {
         let orderId = res.data
         let params = {
@@ -109,7 +109,7 @@ Page({
           orderId: orderId,
           total: 1
         }
-        api._post('/front/pay/wxPayTemp', payTemppara).then(res => {
+        api._post('/front/pay/wxPayTemp',app.globalData.accessToken, payTemppara).then(res => {
           if (res.status === 200) {
             wx.switchTab({
               url: '../index/index',
@@ -134,13 +134,13 @@ Page({
         //          package: res.data.package,
         //          signType: 'MD5',
         //          paySign: res.data.paySign,
-        //          'success': function (res) { 
+        //          'success': function (res) {
         //            console.log('success:' + res)
         //          },
-        //          'fail': function (res) { 
+        //          'fail': function (res) {
         //            console.log(res)
         //          },
-        //          'complete': function (res) { 
+        //          'complete': function (res) {
         //            console.log('complete:' + res)
         //          }
         //        })

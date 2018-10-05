@@ -13,8 +13,9 @@ Page({
     userInfo: {}
   },
   onLoad: function () {
+    console.log('token:' + app.globalData.accessToken)
     var that =this
-    api._post('/front/index/index').then(res => {
+    api._post('/front/index/index',app.globalData.accessToken).then(res => {
       that.setData({
         imgUrls: res.data.bannerList.rows,
         categoryList: res.data.categoryList,

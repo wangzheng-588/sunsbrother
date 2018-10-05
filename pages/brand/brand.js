@@ -134,7 +134,7 @@ Page({
     let param = {
       cateId: cateId
     }
-    api._post('/front/brand/getBrandListForCateId', param).then(res => {
+    api._post('/front/brand/getBrandListForCateId',app.globalData.accessToken, param).then(res => {
       this.setData({
         act_addList: res.data
       })

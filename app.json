@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/login/login",
     "pages/index/index",
     "pages/home/home",
     "pages/category/category",
@@ -10,7 +11,8 @@
     "pages/repair/repair",
     "pages/repairman/repairman",
     "pages/rep-order/rep-order",
-    "pages/login/login"
+    "pages/repairmanreg/repairmanreg"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

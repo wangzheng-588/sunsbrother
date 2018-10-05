@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -64,6 +64,17 @@
 					"name": "evaluate",
 					"pathName": "pages/evaluate/evaluate",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "repairman",
+					"pathName": "pages/repairman/repairman",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "repairman",
+					"pathName": "pages/repairmanreg/repairmanreg"
 				}
 			]
 		}

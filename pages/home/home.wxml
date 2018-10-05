@@ -3,14 +3,14 @@
     <view>
         <image class='photo' src='/images/photo.JPG'></image>
     </view>
-    <view class='admin'>A.R.M.Y</view>
+    <view class='admin'>{{nickname}}</view>
 </view>
 <view>
     <navigator url="/pages/myorder/myorder" hover-class="navigator-hover">
         <view class='list'>订单管理</view>
     </navigator>
 
-    <view class='list'>维修师傅中心</view>
+    <view class='list' bindtap="jumpRepairmanPage">维修师傅中心</view>
     <view class='list'>常见问题</view>
     <view class='list'>服务流程</view>
 </view>

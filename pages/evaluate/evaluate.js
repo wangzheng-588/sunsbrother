@@ -1,4 +1,5 @@
-const api = require('../../api/api.js')
+const api = require('../../api/api.js');
+const app = getApp();
 Page({
 
     /**
@@ -15,11 +16,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let orderId = options.orderId
+        let orderId = options.orderId;
         let params = {
             orderId: orderId
         }
-        api._post('/front/order/getOrderDetail',params).then(res => {
+        api._post('/front/order/getOrderDetail',app.globalData.accessToken,params).then(res => {
             if (res.status === 200) {
                 this.setData({
                     order: res.data
@@ -54,7 +55,7 @@ Page({
             serStar: this.data.problemValue+this.data.speedValue+this.data.serValue,
             orderId: this.data.order.orderId
         }
-        api._post("/front/serman/evaluateSerman",params).then(res => {
+        api._post("/front/serman/evaluateSerman",app.globalData.accessToken,params).then(res => {
             if (res.status === 200) {
                 wx.switchTab({
                     url: '../index/index'

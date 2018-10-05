@@ -1,5 +1,6 @@
 // pages/PC-1/myorder.js
 const api = require('../../api/api.js')
+const app = getApp();
 import { $wuxDialog } from '../../wux/index'
 Page({
     data: {
@@ -70,7 +71,7 @@ Page({
             params.userId = "1"
             params.orderStatus = orderStatus
         }
-        api._post('/front/order/getOrderListForUserId', params).then(res => {
+        api._post('/front/order/getOrderListForUserId',app.globalData.accessToken, params).then(res => {
             console.log(res)
             if (res.status === 200) {
                 this.setData({
@@ -92,7 +93,7 @@ Page({
                 let params = {
                     orderId: orderId
                 }
-                api._post('/front/order/cancelOrder', params).then(res => {
+                api._post('/front/order/cancelOrder',app.globalData.accessToken, params).then(res => {
                     if (res.status === 200) {
                         that.getOrderList(that.data.orderStatus)
                     }
@@ -114,7 +115,7 @@ Page({
                 let params = {
                     orderId: orderId
                 }
-                api._post('/front/order/finishRepair', params).then(res => {
+                api._post('/front/order/finishRepair',app.globalData.accessToken, params).then(res => {
                     if (res.status === 200) {
                         that.getOrderList(that.data.orderStatus)
                     }

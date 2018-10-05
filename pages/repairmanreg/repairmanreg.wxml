@@ -1,0 +1,51 @@
+<view class="container">
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">姓名:</text>
+        <input class='ms' type='text' placeholder='请填写姓名' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">性别:</text>
+        <input class='ms' type='text' placeholder='请填写性别' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">电话:</text>
+        <input class='ms' type='text' placeholder='请填写电话' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">常住地址:</text>
+        <input class='ms' type='text' placeholder='请填写常住地址' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">现在就职单位:</text>
+        <input class='ms' type='text' placeholder='请填写现在就职单位' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">从事维修年限:</text>
+        <input class='ms' type='text' placeholder='请填写现在就职单位' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">是否泫氏:</text>
+        <input class='ms' type='text' placeholder='请填写现在就职单位' name='username'></input>
+    </view>
+    <view class='message'>
+        <text style="height: 100rpx;text-align: center;line-height: 100rpx">维修类别:</text>
+        <input class='ms' type='text' placeholder='请填写现在就职单位' name='username'></input>
+    </view>
+    <view>
+        <text style="line-height: 100rpx;font-size: 28rpx">身份证上传:</text>
+    </view>
+    <wux-upload list-type="picture-card" file-list="{{ uploadZPhotos }}"
+                url="http://localhost:8089/upload/uploadIdCardImg" bind:change="onZChange" bind:success="onZSuccess"
+                showRemoveIcon="{{showRemoveIcon}}"
+                bind:fail="onZFail" bind:complete="onZComplete" bind:preview="onZRemove">
+        <text style="font-size: 24rpx;color: #999999">身份证正面</text>
+    </wux-upload>
+    <wux-upload list-type="picture-card" file-list="{{ uploadFPhotos }}"
+                url="http://localhost:8089/upload/uploadIdCardImg" bind:change="onFChange" bind:success="onFSuccess"
+                showRemoveIcon="{{showRemoveIcon}}"
+                bind:fail="onFFail" bind:complete="onFComplete" bind:preview="onFRemove">
+        <text style="font-size: 24rpx;color: #999999">身份证反面</text>
+    </wux-upload>
+    <text style="font-size: 24rpx;color: #999999">提交即代表同意《泫氏小哥注册协议》</text>
+    <button style="color: #ffffff;font-size: 28rpx;margin-top: 80rpx">提交</button>
+</view>
