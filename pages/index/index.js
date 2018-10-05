@@ -16,12 +16,14 @@ Page({
     console.log('token:' + app.globalData.accessToken)
     var that =this
     api._post('/front/index/index',app.globalData.accessToken).then(res => {
-      that.setData({
-        imgUrls: res.data.bannerList.rows,
-        categoryList: res.data.categoryList,
-        reProductList: res.data.reProductList,
-        homeAdList: res.data.homeAdList
-      })
+     if (res.status === 200) {
+         that.setData({
+             imgUrls: res.data.bannerList.rows,
+             categoryList: res.data.categoryList,
+             reProductList: res.data.reProductList,
+             homeAdList: res.data.homeAdList
+         })
+     }
     }).catch(e => {
     })
   },

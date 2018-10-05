@@ -1,6 +1,11 @@
 {
   "navigationBarTitleText": "维修师傅注册",
   "usingComponents": {
-    "wux-upload": "/wux/upload/index"
+    "wux-upload": "/wux/upload/index",
+    "wux-actionsheet": "/wux/actionsheet/index",
+    "wux-cell-group": "/wux/cell-group/index",
+    "wux-cell": "/wux/cell/index",
+    "wux-select": "/wux/select/index",
+    "wux-toast": "/wux/toast/index"
   }
 }

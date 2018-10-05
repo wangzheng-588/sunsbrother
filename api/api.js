@@ -23,8 +23,14 @@ const http = ({
             complete: (res) => {
                 wx.hideLoading();
                 console.log(`耗时${Date.now() - timeStart}`);
-                if (res.statusCode == 200) {
+                if (res.statusCode === 200) {
                     resolve(res.data)
+                    if (res.data.status === 502) {
+                        console.log("这里未登录啊")
+                        wx.navigateTo({
+                            url: '../login/login?clear=true'
+                        })
+                    }
                 } else {
                     reject(res)
                 }
