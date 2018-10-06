@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -74,7 +74,13 @@
 				{
 					"id": -1,
 					"name": "repairman",
-					"pathName": "pages/repairmanreg/repairmanreg"
+					"pathName": "pages/repairmanreg/repairmanreg",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现列表",
+					"pathName": "pages/presentRecord/presentRecord"
 				}
 			]
 		}

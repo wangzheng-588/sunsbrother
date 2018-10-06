@@ -1,33 +1,37 @@
 <!--pages/repairman/repairman.wxml-->
 <view style="background: #ffffff;display: flex;flex-direction: row;padding: 40rpx">
 
-    <img style="height: 200rpx;width: 200rpx" src="http://img4.duitang.com/uploads/item/201408/11/20140811084744_HJAjL.thumb.700_0.jpeg"/>
+    <img style="height: 200rpx;width: 200rpx"
+         src="http://img4.duitang.com/uploads/item/201408/11/20140811084744_HJAjL.thumb.700_0.jpeg"/>
 
-  <view style="display: flex;flex-direction: column;flex:1">
-    <view style="font-size: 28rpx">{{serName}}</view>
-    <view style="font-size: 28rpx">{{serPhone}}</view>
-  </view>
+    <view style="display: flex;flex-direction: column;flex:1">
+        <view style="font-size: 28rpx">{{serName}}</view>
+        <view style="font-size: 28rpx">{{serPhone}}</view>
+    </view>
 
-  <wux-icon size="24" type="ios-arrow-forward" />
+    <wux-icon size="24" type="ios-arrow-forward"/>
 </view>
 
 <view class='container'>
 
-  <view class='money l'>
-    ¥{{balance}}
-    <view class='text'>当前余额</view>
-  </view>
-  <view class='money r'>
-    ¥{{canBePresented}}
-    <view class='text'>可提现余额</view>
-    <button bindtap="jumpWithdrawCashPage">立即提现</button>
-  </view>
+    <view class='money l'>
+        ¥{{balance}}
+        <view class='text'>当前余额</view>
+    </view>
+    <view class='money r'>
+        ¥{{canBePresented}}
+        <view class='text'>可提现余额</view>
+        <button bindtap="jumpWithdrawCashPage">立即提现</button>
+    </view>
 </view>
+
+<navigator url="../presentRecord/presentRecord?serId={{serId}}">
+    <view class='list'>
+        <text style="flex:1">提现明细</text>
+        <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward"/>
+    </view>
+</navigator>
 <view class='list'>
-    <text style="flex:1">提现明细</text>
-  <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward" />
-  </view>
-  <view class='list'>
     <text style="flex:1">维修订单</text>
-    <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward" />
-  </view>
+    <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward"/>
+</view>

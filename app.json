@@ -12,7 +12,8 @@
     "pages/repairman/repairman",
     "pages/rep-order/rep-order",
     "pages/repairmanreg/repairmanreg",
-    "pages/withdrawCash/withdrawCash"
+    "pages/withdrawCash/withdrawCash",
+    "pages/presentRecord/presentRecord"
 
   ],
   "window":{

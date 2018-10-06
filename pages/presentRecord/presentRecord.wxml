@@ -1,0 +1,27 @@
+<!-- pages/test/test.wxml -->
+<view class="container">
+  <view style="font-size: 24rpx;color:#999999;display: flex;flex-direction: row;background-color: #a3a3a3;padding: 20rpx">
+    <text style="flex: 1;color:#545454">日期</text>
+    <text style="color:#545454">结余(元)</text>
+  </view>
+  <scroll-view>
+    <view>
+      <block wx:for="{{recordList}}" wx:key="index">
+        <!--<view style="font-size: 24rpx;background-color: #a3a3a3;color: #545454;padding: 20rpx">2018年9月</view>-->
+        <view style="font-size:24rpx;color:#333333;padding:20rpx;background: #fff;display: flex;flex-direction: row;align-items: center">
+          <text>{{item.recCreateTimeStr}}</text>
+          <view style="display:flex;flex-direction:column;flex:1;text-align: center">
+            <text style="color: #499156">-{{item.recMoney}}</text>
+            <text wx:if="{{item.recStatus===0}}">提现(审核中)</text>
+            <text wx:if="{{item.recStatus===2}}">提现(审核未通过)</text>
+            <text wx:if="{{item.recStatus===1}}">提现(审核成功)</text>
+          </view>
+          <text style="margin-right: 40rpx">0.00</text>
+        </view>
+      </block>
+
+    </view>
+  </scroll-view>
+
+</view>
+

@@ -1,0 +1,9 @@
+/* pages/brand/brand.wxss */
+page {
+    height: 100%;
+}
+.container{
+    box-sizing: border-box;
+    background: #ffffff;
+    height: 100%;
+}
