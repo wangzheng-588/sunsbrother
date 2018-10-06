@@ -13,7 +13,8 @@
     "pages/rep-order/rep-order",
     "pages/repairmanreg/repairmanreg",
     "pages/withdrawCash/withdrawCash",
-    "pages/presentRecord/presentRecord"
+    "pages/presentRecord/presentRecord",
+    "pages/complain/complain"
 
   ],
   "window":{

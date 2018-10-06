@@ -47,10 +47,12 @@
                 </view>
                 <button wx:if="{{item.orderStatus === 2}}" class="button">购买服务</button>
                 <button wx:if="{{item.orderStatus === 3}}" bindtap="finishRepair" data-orderId="{{item.orderId}}" class="button">维修完成</button>
+                <navigator url="../complain/complain?serId={{item.orderSerId}}&orderId={{item.orderId}}">
+                    <button wx:if="{{item.orderStatus === 4}}" class="button">投诉</button>
+                </navigator>
                 <navigator url="../evaluate/evaluate?serId={{item.orderSerId}}&orderId={{item.orderId}}">
                     <button wx:if="{{item.orderStatus === 4}}" class="button">评价</button>
                 </navigator>
-
                 <button wx:if="{{item.orderStatus === 7}}" class="button">付款</button>
                 <view style="clear:both"></view>
             </view>
