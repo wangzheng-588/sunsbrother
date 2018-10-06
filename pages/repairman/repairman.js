@@ -8,6 +8,7 @@ Page({
      */
     data: {
         serName: '',
+        serId: '',
         phone: '',
         balance: 0,
         canBePresented: 0
@@ -27,6 +28,7 @@ Page({
                 if (res.status === 200) {
                     that.setData({
                         serName: res.data.serName,
+                        serId: res.data.serId,
                         phone: res.data.serPhone,
                         balance: res.data.serBalance,
                         canBePresented: res.data.canBePresented
@@ -36,7 +38,7 @@ Page({
     },
     jumpWithdrawCashPage: function () {
         wx.navigateTo({
-            url: '../withdrawCash/withdrawCash'
+            url: '../withdrawCash/withdrawCash?serId=' + this.data.serId + '&canBePresented=' + this.data.canBePresented
         })
     }
 })

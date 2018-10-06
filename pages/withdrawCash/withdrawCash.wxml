@@ -1,9 +1,16 @@
 <!-- pages/test/test.wxml -->
-<view class='message'>
-  可提现金额：{{balance}}
+<view class="container">
+  <form bindsubmit='applyCash'>
+    <view class='message'>
+      可提现金额：{{balance}}
+    </view>
+    <view class='message'>
+      提现金额：
+      <input class='ms' type='number' placeholder='请填写提现金额' name='money'/>
+    </view>
+    <button form-type='submit' class="button" style="margin-top: 80rpx">申请提现</button>
+  </form>
+  <wux-toast id="wux-toast" />
+
 </view>
-<view class='message'>
-  提现金额：
-  <input class='ms' type='number' placeholder='请填写提现金额' name='money'/>
-</view>
-<view class="button" bindtap='jumpToInstallPage'>提现</view>
+

@@ -2,3 +2,9 @@
 page {
     height: 100%;
 }
+.container{
+    box-sizing: border-box;
+    padding: 40rpx;
+    background: #ffffff;
+    height: 100%;
+}
