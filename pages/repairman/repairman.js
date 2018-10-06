@@ -33,5 +33,10 @@ Page({
                     })
                 }
             })
+    },
+    jumpWithdrawCashPage: function () {
+        wx.navigateTo({
+            url: '../withdrawCash/withdrawCash'
+        })
     }
 })

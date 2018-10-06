@@ -1,0 +1,4 @@
+/* pages/brand/brand.wxss */
+page {
+    height: 100%;
+}

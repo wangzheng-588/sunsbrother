@@ -20,7 +20,7 @@
   <view class='money r'>
     ¥{{canBePresented}}
     <view class='text'>可提现余额</view>
-    <button>立即提现</button>
+    <button bindtap="jumpWithdrawCashPage">立即提现</button>
   </view>
 </view>
 <view class='list'>
