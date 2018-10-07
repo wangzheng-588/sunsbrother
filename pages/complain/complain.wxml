@@ -1,22 +1,37 @@
 <!-- pages/test/test.wxml -->
 <view style="height: 100%;width: 100%;">
-  <view class='evaluate' >
-    <text class="orderid">预约编号：{{orderId}}</text>
-    <view class='item'>
-      <image class="head" src='/icon/家居-空调.png'></image>
-      <view style="display: flex;flex-direction: column;margin-left: 20rpx">
-        <text class='up'>{{order.orderCateName}}-{{order.orderBraName}}-{{order.orderType?'安装':'维修'}}</text>
-        <text class='middle'>{{order.orderFailureCause}}</text>
-        <view class='down'>维修师傅：
-          <text class="price">{{order.orderSerName}}</text>
+  <form bindsubmit='complaint'>
+    <view class='evaluate' >
+      <text class="orderid">预约编号：{{orderId}}</text>
+      <view class='item'>
+        <image class="head" src='/icon/家居-空调.png'></image>
+        <view style="display: flex;flex-direction: column;margin-left: 20rpx">
+          <text class='up'>{{order.orderCateName}}-{{order.orderBraName}}-{{order.orderType?'安装':'维修'}}</text>
+          <text class='middle'>{{order.orderFailureCause}}</text>
+          <view class='down'>维修师傅：
+            <text class="price">{{order.orderSerName}}</text>
+          </view>
         </view>
       </view>
+
+      <view style="display: flex;flex-direction: row;flex-wrap: wrap;margin: 20rpx">
+        <block wx:for="{{complaintNameList}}" wx:key="index">
+          <view class="{{item.checked? 'active-cause': 'cause'}}"
+                data-index="{{index}}" bindtap='selectComplaint'>
+            {{item.caName}}
+          </view>
+        </block>
+
+      </view>
+      <text style="font-size:26rpx">其他</text>
+      <view class='remarks'>
+        <textarea class='rm' placeholder='其他原因' name='remark'></textarea>
+      </view>
     </view>
-    <text style="font-size:26rpx">其他</text>
-    <view class='remarks'>
-      <textarea class='rm' placeholder='其他原因' name='remark'></textarea>
-    </view>
-  </view>
-  <button bindtap="evaluateSerman" style="position: fixed;bottom: 0;width: 100%;left: 0">提交投诉</button>
+    <wux-toast id="wux-toast" />
+    <button form-type='submit' style="position: fixed;bottom: 0;width: 100%;left: 0">提交投诉</button>
+  </form>
+
+
 </view>
 

@@ -41,7 +41,6 @@
   border: none;
   font-size:24rpx;
   text-align: center;
-  font-family:MicrosoftYaHei;
   font-weight:400;
   line-height:50rpx;
 }
