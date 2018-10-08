@@ -31,7 +31,9 @@
         <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward"/>
     </view>
 </navigator>
-<view class='list'>
-    <text style="flex:1">维修订单</text>
-    <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward"/>
-</view>
+<navigator url="../sermanorder/sermanorder?serId={{serId}}">
+    <view class='list'>
+        <text style="flex:1">维修订单</text>
+        <wux-icon size="24" style="margin-right:40rpx" type="ios-arrow-forward"/>
+    </view>
+</navigator>

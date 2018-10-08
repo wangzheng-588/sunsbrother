@@ -14,8 +14,8 @@
     "pages/repairmanreg/repairmanreg",
     "pages/withdrawCash/withdrawCash",
     "pages/presentRecord/presentRecord",
-    "pages/complain/complain"
-
+    "pages/complain/complain",
+    "pages/sermanorder/sermanorder"
   ],
   "window":{
     "backgroundTextStyle":"light",

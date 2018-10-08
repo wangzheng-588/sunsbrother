@@ -1,0 +1,64 @@
+<!--主盒子-->
+<view class="container">
+  <!--菜单栏-->
+  <view class="nav">
+    <block wx:for="{{cateItems}}" wx:key="">
+      <!--当前项的id等于item项的id，那个就是当前状态-->
+      <!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->
+      <view class="nav_items {{curNav == item.cate_id ? 'active' : ''}} {{currentTab==item.cate_current ? 'on' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cate_id}}" data-current="{{item.cate_current}}">{{item.cate_name}}</view>
+    </block>
+  </view>
+  <view class="menu" wx:if="{{cateItems[curIndex].cate_id == 2}}">
+    <view class='secMenu' bindtap="switchOrderStatus" data-index="1">等待接单</view>
+    <view class='secMenu' bindtap="switchOrderStatus" data-index="2">等待维修</view>
+    <view class='secMenu' bindtap="switchOrderStatus" data-index="3">正在维修</view>
+    <view class='secMenu' bindtap="switchOrderStatus" data-index="4">维修完成</view>
+  </view>
+  <!--内容栏-->
+  <view class='container'>
+    <!--如果有数据，才遍历项-->
+    <view wx:if="{{orderList.length>0}}">
+      <block wx:for="{{orderList}}" wx:key="">
+        <view class="order">
+          <view class='title'>
+            <text>预约编号：{{item.orderId}}</text>
+            <text wx:if="{{item.orderStatus == 1}}"><text class='red'>待接单</text></text>
+            <text wx:if="{{item.orderStatus == 2}}"><text class='red'>待维修</text></text>
+            <text wx:if="{{item.orderStatus == 3}}"><text class='red'>正在维修</text></text>
+            <text wx:if="{{item.orderStatus == 4}}"><text class='red'>维修完成</text></text>
+            <text wx:if="{{item.orderStatus == 6}}"><text class='red'>维修完成</text></text>
+          </view>
+          <view class='item'>
+            <image src="{{item.image}}"></image>
+            <view>
+              <view class='up'>{{item.orderCateName}}-{{item.orderBraName}}-{{item.orderType?'维修':'安装'}}</view>
+              <view class='middle'>{{item.orderFailureCause}}</view>
+              <view class='down'>上门费用：<text class='red'>{{item.orderServerPrice}}</text></view>
+            </view>
+          </view>
+          <view class='address'>
+            <image src='/icon/定位.png'></image>
+            <view style='margin-top:14rpx;'>
+              <view>{{item.orderUserName}}  {{item.orderPhone}}</view>
+              <view>{{item.orderAddress}}</view>
+            </view>
+          </view>
+          <view class='button' wx:if="{{item.orderStatus == 1}}">
+            <button class='ordList-left' bindtap="noRecOrder" data-orderId="{{item.orderId}}">不接单</button>
+            <button class='ordList-right' bindtap="recOrder" data-orderId="{{item.orderId}}">去接单</button>
+          </view>
+          <view class='button' wx:if="{{item.orderStatus == 2}}">
+            <button class='ordList-left' bindtap="againAllocation" data-orderId="{{item.orderId}}">重新分配</button>
+            <button class='ordList-right' bindtap="startRepair" data-orderId="{{item.orderId}}">开始维修</button>
+          </view>
+          <view class='button' wx:if="{{item.orderStatus == 3}}">
+            <button class='ordList-right'  bindtap="finishRepair" data-orderId="{{item.orderId}}">维修完成</button>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!--如果无数据，则显示数据-->
+    <view class="nodata_text" wx:else>该分类暂无数据</view>
+  </view>
+  <wux-toast id="wux-toast" />
+</view>

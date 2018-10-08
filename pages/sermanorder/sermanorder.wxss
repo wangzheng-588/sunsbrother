@@ -1,0 +1,141 @@
+
+/*总体主盒子*/
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+ /*菜单栏主盒子*/
+.nav{
+  width: 100%;
+  height: 80rpx;
+  background: #FFF;
+  margin-top: 1px;
+  display: flex;
+  font-size: 28rpx;
+  color: #333;
+}
+.menu{
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  margin-top: 20rpx;
+}
+.secMenu{
+  width: 130rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  margin: auto;
+  border: 1px solid #333;
+  border-radius: 14px;
+}
+
+.nodata_text
+{
+  width: 100%;
+  line-height: 100rpx;
+  font-size: 14px;
+  text-align: center;
+}
+
+/*订单菜单栏list的item*/
+.nav .nav_items{
+  width:auto;
+  display: flex;
+  align-items: center;
+  margin:auto;
+  line-height: 78rpx;
+}
+/*订单列表*/
+.order{
+  width:690rpx;
+  height:440rpx;
+  background:#FFF;
+  border-radius:6px;
+  box-shadow:1px 0px 4px #999;
+  margin: auto;
+  margin-top: 20rpx;
+}
+.item image{
+  /*被图片设置宽高*/
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0 30rpx 0 30rpx;
+}
+.item{
+  width: 690rpx;
+  height: auto;
+  display: flex;
+  margin-top: 20rpx;
+}
+.title .up .middle .down{
+  font-family:SimHei;
+  font-weight:400;
+}
+.title{
+  color:#616466;
+  font-size:30rpx;
+  margin-top: 24rpx;
+  margin-left: 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.up{
+  font-size:30rpx;
+  height: 50rpx;
+}
+.middle{
+  font-size:30rpx;
+  color:#666;
+  height: 50rpx;
+}
+.down{
+  font-size: 24rpx;
+  height: 50rpx;
+}
+.red{
+  color: rgba(253,22,22,1);
+  float: right;
+  margin-right: 30rpx;
+}
+.gray{
+  color: #999;
+  float: right;
+  margin-right: 30rpx;
+}
+.address{
+  font-size: 28rpx;
+  display: flex;
+  margin-top: 14rpx;
+}
+.address image{
+  width:30rpx;
+  height:30rpx;
+  margin:18rpx 10rpx 0 30rpx;
+}
+.ordList-left{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  background: #FFF;
+  color: #000;
+  border: 1px solid #666666;
+  margin-right: 20rpx;
+}
+.ordList-right{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+  line-height: 60rpx;
+}
+.button{
+  display: flex;
+  margin-top: 20rpx;
+  float: right;
+  margin-right: 20rpx;
+}

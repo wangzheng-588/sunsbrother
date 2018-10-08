@@ -26,8 +26,7 @@ const http = ({
                 if (res.statusCode === 200) {
                     resolve(res.data)
                     if (res.data.status === 502) {
-                        console.log("这里未登录啊")
-                        wx.navigateTo({
+                        wx.redirectTo({
                             url: '../login/login?clear=true'
                         })
                     }
