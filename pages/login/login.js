@@ -1,5 +1,7 @@
 var app = getApp();
 const api = require('../../api/api.js')
+// pages/repairman/repairman.js
+import {$wuxToast} from '../../wux/index'
 Page({
     data: {
         //判断小程序的API，回调，参数，组件等是否在当前版本可用。
@@ -111,8 +113,6 @@ Page({
                 console.log('这是服务器登录状态');
                 console.log(res)
                 if (res.status === 200) {
-                    console.log('这是服务器登录状态');
-                    console.log(res)
                     wx.switchTab({
                         url: '/pages/index/index'
                     })
@@ -120,5 +120,55 @@ Page({
             })
         }
     },
+    phoneLogin: function (e) {
+        console.log(e)
+        let phone = e.detail.value.phone
+        let password = e.detail.value.password
+
+        if (phone === '' || phone === undefined) {
+            $wuxToast().show({
+                type: 'text',
+                duration: 1500,
+                color: '#fff',
+                text: '手机号不能为空'
+            })
+            return false;
+        }
+
+        if (password === '' || password === undefined) {
+            $wuxToast().show({
+                type: 'text',
+                duration: 1500,
+                color: '#fff',
+                text: '密码不能为空'
+            })
+            return false;
+        }
+
+        const params = {
+            phone: phone,
+            password: password
+        }
+        api._post("/front/login/phoneLogin",app.globalData.accessToken,params)
+            .then(res => {
+                if (res.status === 200) {
+                    app.globalData.accessToken = res.data.accessToken
+                    app.globalData.userId = res.data.userId
+                    wx.setStorageSync('accessToken', res.data.accessToken)
+                    wx.setStorageSync('userId', res.data.userId)
+                    // this.queryUsreInfo(res.data.accessToken)
+                    wx.switchTab({
+                        url: '/pages/index/index'
+                    })
+                } else {
+                    $wuxToast().show({
+                        type: 'text',
+                        duration: 1500,
+                        color: '#fff',
+                        text: '手机或密码错误'
+                    })
+                }
+            })
+    }
 
 })
