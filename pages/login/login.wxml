@@ -4,8 +4,8 @@
         <input class='number font' type='number' name="phone" placeholder='请输入手机号'></input>
         <input class='number font' placeholder='请输入登陆密码' name="password"></input>
         <view class='herf'>
-            <navigator url='' class='font retrieve'>找回密码</navigator>
-            <navigator url='' class='font register'>新用户注册</navigator>
+            <navigator url='../findpass/findpass' class='font retrieve'>找回密码</navigator>
+            <navigator url='../register/register' class='font register'>新用户注册</navigator>
         </view>
         <button form-type='submit'>登陆</button>
     </form>

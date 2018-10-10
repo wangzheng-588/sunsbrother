@@ -1,0 +1,83 @@
+/* pages/login/login.wxss */
+page{
+  background: #FFF;
+}
+.container{
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.font{
+  font-size: 34rpx;
+  color: #999;
+}
+.item{
+  height: 30rpx;
+}
+.number{
+  padding-left: 20rpx;
+  background: #f3f3f4;
+  height: 100rpx;
+  margin: auto;
+  margin-top: 40rpx;
+  line-height: 100rpx;
+}
+.short{
+  flex: 1;
+  background: #f3f3f4;
+  height: 100rpx;
+  margin: auto;
+  line-height: 100rpx;
+  padding-left: 1rem;
+}
+.verification{
+  height: 100rpx;
+  display: flex;
+  margin: auto;
+  margin-top: 40rpx;
+}
+/*获取验证码按钮*/
+.code{
+  width: 200rpx;
+  margin-left: 4rpx;
+  font-size:26rpx;
+  height: 100rpx;
+  background:rgba(79,143,251,1);
+  box-shadow:0px 0px 20px 0px;
+  color:#FFFFFF;
+  line-height: 98rpx;
+}
+.herf{
+  margin: auto;
+  margin-top: 24rpx;
+}
+.retrieve{
+  margin-left: 20rpx;
+}
+.register{
+  float: right;
+}
+/*登录按钮*/
+.login{
+  margin-top: 20rpx;
+  background:rgba(79,143,251,1);
+  box-shadow:0px 0px 20px 0px;
+  font-size:32rpx;
+  font-weight:400;
+  color:#FFFFFF;
+  line-height: 98rpx;
+}
+.fast{
+  width: 80rpx;
+  margin: auto;
+  margin-top: 180rpx;
+}
+image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.text{
+  width: 120rpx;
+  margin: auto;
+  font-size: 28rpx;
+  color: #999;
+}

@@ -15,7 +15,8 @@
     "pages/withdrawCash/withdrawCash",
     "pages/presentRecord/presentRecord",
     "pages/complain/complain",
-    "pages/sermanorder/sermanorder"
+    "pages/sermanorder/sermanorder",
+    "pages/findpass/findpass"
   ],
   "window":{
     "backgroundTextStyle":"light",
