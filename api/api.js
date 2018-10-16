@@ -1,4 +1,6 @@
 const baseUrl = 'http://192.168.10.81:8089';
+//const baseUrl = 'https://yuzhekeji.fun';
+// const baseUrl = 'http://47a65ef5.ngrok.io';
 const app = getApp();
 
 const http = ({

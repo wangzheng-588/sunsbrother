@@ -9,23 +9,35 @@ Page({
      * 页面的初始数据
      */
     data: {
+        uploadTPhotos: [],
         uploadZPhotos: [],
         uploadFPhotos: [],
         gender: '男',
         isSuns: true,
+        tdisable: false,
         fdisable: false,
         sdisable: false,
         zdisable: false,
         categoryList: [],
         cateValue: '',
         cateTitle: '',
-        uploadSPhotos: []
+        uploadSPhotos: [],
+        header: {},
+        uploadImageUrl: api.baseUrl + '/upload/uploadIdCardImg'
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      let token = {
+        accessToken: app.globalData.accessToken
+      }
+      this.setData({
+        header: token
+      })
+      console.log(this.data.header)
+      
         api._post('/front/category/getCategoryList', app.globalData.accessToken).then(res => {
             if (res.status === 200) {
                 console.log(res.data)
@@ -44,6 +56,85 @@ Page({
             }
         })
     },
+
+  onTChange(e) {
+    const { file } = e.detail
+    if (file.status === 'uploading') {
+      this.setData({
+        progress: 0,
+      })
+      wx.showLoading()
+    } else if (file.status === 'done') {
+      this.setData({
+        imageUrl: file.url
+      })
+    }
+  },
+  onTSuccess(e) {
+    
+  },
+  onTFail(e) {
+
+  },
+  onTComplete(e) {
+    let that = this;
+    wx.hideLoading()
+
+    const result = e.detail
+    if (result.statusCode === 200) {
+
+      let data = JSON.parse(result.data)
+      if (data.status === 200) {
+        let photo = {
+          url: api.baseUrl + data.data
+        }
+        that.data.uploadTPhotos.push(photo)
+        that.setData({
+          uploadTPhotos: this.data.uploadTPhotos
+        })
+        console.log(this.data)
+        if (that.data.uploadTPhotos.length >= 1) {
+          console.log('大于1')
+          that.setData({
+            tdisable: true
+          })
+        }
+      }
+    }
+  },
+  onTProgress(e) {
+    this.setData({
+      progress: e.detail.file.progress,
+    })
+  },
+  onTPreview(e) {
+    const { file, fileList } = e.detail
+    wx.previewImage({
+      current: file.url,
+      urls: fileList.map((n) => n.url),
+    })
+  },
+  onTRemove(e) {
+    let that = this;
+    const { file, fileList } = e.detail
+
+    wx.showModal({
+      content: '确定删除？',
+      success: (res) => {
+
+        if (res.confirm) {
+          this.setData({
+            uploadTPhotos: fileList.filter((n) => n.url !== file.url),
+          })
+          if (that.data.uploadTPhotos.length === 0) {
+            that.setData({
+              tdisable: false
+            })
+          }
+        }
+      },
+    })
+  },
 
     onZChange(e) {
         const {file} = e.detail
@@ -102,6 +193,7 @@ Page({
         })
     },
     onZRemove(e) {
+      let that = this;
         const {file, fileList} = e.detail
         wx.showModal({
             content: '确定删除？',
@@ -112,7 +204,7 @@ Page({
                     })
                     if (that.data.uploadZPhotos.length === 0) {
                         that.setData({
-                            zdisable: true
+                          zdisable: false
                         })
                     }
                 }
@@ -133,7 +225,7 @@ Page({
         }
     },
     onFSuccess(e) {
-
+      console.log(e)
     },
     onFFail(e) {
 
@@ -155,13 +247,12 @@ Page({
                     uploadFPhotos: this.data.uploadFPhotos
                 })
                 if (that.data.uploadFPhotos.length >= 1) {
-                    console.log('大于1')
+                    console.log('反面图片大于1')
                     that.setData({
                         fdisable: true
                     })
                 }
-                console.log(that.data.uploadFPhotos.length)
-                console.log(this.data.fdisable)
+            
             }
         }
     },
@@ -178,18 +269,18 @@ Page({
         })
     },
     onFRemove(e) {
+      let that = this;
         const {file, fileList} = e.detail
         wx.showModal({
             content: '确定删除？',
             success: (res) => {
                 if (res.confirm) {
                     this.setData({
-                        uploadFPhotos: fileList.filter((n) => n.url !== file.url),
-                        fdisable: false
+                        uploadFPhotos: fileList.filter((n) => n.url !== file.url)
                     })
                     if (this.data.uploadFPhotos.length === 0) {
                         this.setData({
-                            fdisable: true
+                          fdisable: false
                         })
                     }
                 }
@@ -218,7 +309,7 @@ Page({
     onSComplete(e) {
         let that = this;
         wx.hideLoading()
-        console.log(e)
+        
         const result = e.detail
         if (result.statusCode === 200) {
 
@@ -252,6 +343,7 @@ Page({
         })
     },
     onSRemove(e) {
+      let that = this;
         const {file, fileList} = e.detail
         wx.showModal({
             content: '确定删除？',
@@ -262,7 +354,7 @@ Page({
                     })
                     if (that.data.uploadSPhotos.length === 0) {
                         that.setData({
-                            sdisable: true
+                          sdisable: false
                         })
                     }
                 }
@@ -302,7 +394,7 @@ Page({
     chioceIsSuns: function (e) {
         const that = this
         $wuxActionSheet().showSheet({
-            titleText: '选择性别',
+            titleText: '是否为泫氏维修人员',
             buttons: [{
                 text: '是'
             },
@@ -414,7 +506,7 @@ Page({
                 type: 'text',
                 duration: 1500,
                 color: '#fff',
-                text: '维修年限不能为空'
+                text: '请选择是否为泫氏维修人员'
             })
             return;
         }
@@ -427,6 +519,15 @@ Page({
             })
             return;
         }
+      if (this.data.uploadTPhotos.length === 0 || this.data.uploadTPhotos === undefined) {
+        $wuxToast().show({
+          type: 'text',
+          duration: 1500,
+          color: '#fff',
+          text: '本人头像不能为空'
+        })
+        return;
+      }
         if (this.data.uploadFPhotos.length===0 || this.data.uploadFPhotos === undefined) {
             $wuxToast().show({
                 type: 'text',
@@ -472,6 +573,7 @@ Page({
             serPhone: phone,
             serPresentOffice: presentOffice,
             serYear: year,
+            serFaceImage: this.data.uploadTPhotos[0].url,
             serPhotoZPath: this.data.uploadZPhotos[0].url,
             serPhotoFPath: this.data.uploadFPhotos[0].url,
             userId: app.globalData.userId,
@@ -480,7 +582,27 @@ Page({
             skillList: skillList
         }
         api._post('/front/serman/doRegServiceMan',app.globalData.accessToken,params).then(res => {
-            console.log(res)
+            if(res.status===200){
+              $wuxToast().show({
+                type: 'text',
+                duration: 1500,
+                color: '#fff',
+                text: '注册成功'
+              });
+              wx.switchTab({
+                url: '../home/home',
+                success: function(res) {},
+                fail: function(res) {},
+                complete: function(res) {},
+              })
+            }else{
+              $wuxToast().show({
+                type: 'text',
+                duration: 1500,
+                color: '#fff',
+                text: '注册失败'
+              });
+            }
         })
     }
 })

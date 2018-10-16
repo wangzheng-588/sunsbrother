@@ -2,18 +2,15 @@
     <form bindsubmit='phoneLogin'>
         <view class='item'></view>
         <input class='number font' type='number' name="phone" placeholder='请输入手机号'></input>
-        <input class='number font' placeholder='请输入登陆密码' name="password"></input>
+        <input class='number font' placeholder='请输入登录密码' name="password"></input>
         <view class='herf'>
             <navigator url='../findpass/findpass' class='font retrieve'>找回密码</navigator>
             <navigator url='../register/register' class='font register'>新用户注册</navigator>
         </view>
-        <button form-type='submit'>登陆</button>
+        <button form-type='submit'>登录</button>
     </form>
 </view>
 
-<button class="btnweixin" style="background-image:url(../../icon/weixin.png);" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
-
-</button>
-
-<view class='text'>快捷登陆</view>
+<button class="btnweixin" style="background-image: url('../icon/weiixin.png');" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"/>
+<view class='fast'>快捷登录</view>
 <wux-toast id="wux-toast" />

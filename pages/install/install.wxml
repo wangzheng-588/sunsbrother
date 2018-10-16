@@ -12,7 +12,7 @@
     <view class='message'>
       联系人地址：
       <input class='ms' type='text' placeholder='请填写联系人地址' name='address'></input>
-      <image src='/icon/定位.png' class='location' bindtamp="getCenterLocation"></image>
+      <image src='../icon/定位.png' class='location' bindtamp="getCenterLocation"></image>
     </view>
     <view class='message'>
       预 约 时 间：

@@ -2,69 +2,67 @@
     <wux-actionsheet id="wux-actionsheet" />
     <wux-select id="wux-select" />
     <form bindsubmit='repairSerReg'>
-        <view class='message'>
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">姓名:</text>
+        <view class='message'>姓名:
             <input class='ms' type='text' placeholder='请填写姓名' name='username'></input>
         </view>
-        <view class='message' bindtap="choiceGender">
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx" >性别:</text>
-            <text style="height: 100rpx;flex:1;text-align:left;line-height: 100rpx">{{gender}}</text>
+        <view class='message' bindtap="choiceGender">性别:
+            <text style="flex:1;padding-left:0.6rem;line-height: 100rpx">{{gender}}</text>
         </view>
-        <view class='message'>
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">电话:</text>
+        <view class='message'>电话:
             <input class='ms' type='text' placeholder='请填写电话' name='phone'></input>
         </view>
-        <view class='message'>
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">常住地址:</text>
+        <view class='message'>常住地址:
             <input class='ms' type='text' placeholder='请填写常住地址' name='address'></input>
         </view>
-        <view class='message'>
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">现在就职单位:</text>
+        <view class='message'>现在就职单位:
             <input class='ms' type='text' placeholder='请填写现在就职单位' name='presentOffice'></input>
         </view>
-        <view class='message'>
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">从事维修年限:</text>
+        <view class='message'>从事维修年限:
             <input class='ms' type='text' placeholder='请填写从事维修年限' type="number" name='year'></input>
         </view>
-        <view class='message'  bindtap="chioceIsSuns">
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">是否泫氏:</text>
-            <text style="height: 100rpx;flex:1;text-align:left;line-height: 100rpx" wx:if="{{isSuns}}">是</text>
-            <text style="height: 100rpx;flex:1;text-align:left;line-height: 100rpx" wx:if="{{!isSuns}}">否</text>
+        <view class='message'  bindtap="chioceIsSuns">是否泫氏:
+            <text style="flex:1;padding-left:0.6rem;line-height: 100rpx" wx:if="{{isSuns}}">是</text>
+            <text style="flex:1;padding-left:0.6rem;line-height: 100rpx" wx:if="{{!isSuns}}">否</text>
         </view>
-        <view class='message' bindtap="chioceCategory">
-            <text style="height: 100rpx;text-align: center;line-height: 100rpx">维修类别:</text>
-            <text style="height: 100rpx;flex:1;text-align:left;line-height: 100rpx">{{cateTitle}}</text>
-
+        <view class='message' bindtap="chioceCategory">维修类别:
+            <text style="flex:1;padding-left:0.6rem;line-height: 100rpx">{{cateTitle}}</text>
         </view>
-        <view>
-            <text style="line-height: 100rpx;font-size: 28rpx">身份证上传:</text>
+        <view class='message'>本人头像:
+            <wux-upload disabled="{{tdisable}}" count="1" style="margin:20rpx" header="{{header}}" list-type="picture-card" file-list="{{ uploadTPhotos }}"
+                    url="{{uploadImageUrl}}" bind:change="onTChange" bind:success="onTSuccess"
+                    showRemoveIcon="{{showRemoveIcon}}"
+                    bind:fail="onTFail" bind:complete="onTComplete" bind:preview="onTRemove">
+               <text style="font-size: 50rpx;color: #999999">+</text>
+            </wux-upload>
         </view>
-        <view style="display: flex;flex-direction: row;margin-bottom: 40rpx">
-            <wux-upload disabled="{{zdisable}}" count="1" list-type="picture-card" file-list="{{ uploadZPhotos }}"
-                        url="http://localhost:8089/upload/uploadIdCardImg" bind:change="onZChange" bind:success="onZSuccess"
+        <view class='message'>身份证正面:
+          <!--<view style="display: flex;flex-direction: row;margin-bottom: 40rpx; margin-top:10rpx;">-->
+            <wux-upload disabled="{{zdisable}}" count="1" style="margin:20rpx" header="{{header}}" list-type="picture-card"
+                        file-list="{{ uploadZPhotos }}" sizeType= 'compressed'
+                        url="{{uploadImageUrl}}" bind:change="onZChange" bind:success="onZSuccess"
                         showRemoveIcon="{{showRemoveIcon}}"
                         bind:fail="onZFail" bind:complete="onZComplete" bind:preview="onZRemove">
-                <text style="font-size: 24rpx;color: #999999">身份证正面</text>
+                <text style="font-size: 40rpx;color: #999999">+</text>
             </wux-upload>
-            <wux-upload disabled="{{fdisable}}" count="1" style="margin-left: 80rpx" list-type="picture-card" file-list="{{ uploadFPhotos }}"
-                        url="http://localhost:8089/upload/uploadIdCardImg" bind:change="onFChange" bind:success="onFSuccess"
+            </view>
+        <view class='message'>身份证反面:
+            <wux-upload disabled="{{fdisable}}" count="1" style="margin:20rpx" header="{{header}}" list-type="picture-card" file-list="{{ uploadFPhotos }}"
+                        url="{{uploadImageUrl}}" bind:change="onFChange" bind:success="onFSuccess"
                         showRemoveIcon="{{showRemoveIcon}}"
                         bind:fail="onFFail" bind:complete="onFComplete" bind:preview="onFRemove" bind:before="onFBefore">
-                <text style="font-size: 24rpx;color: #999999">身份证反面</text>
+                <text style="font-size: 40rpx;color: #999999">+</text>
             </wux-upload>
         </view>
-        <view>
-            <text style="line-height: 100rpx;font-size: 28rpx">手持身份证照片:</text>
-        </view>
-        <wux-upload disabled="{{sdisable}}" count="1" style="margin-left: 80rpx" list-type="picture-card" file-list="{{ uploadSPhotos }}"
-                    url="http://localhost:8089/upload/uploadIdCardImg" bind:change="onSChange" bind:success="onSSuccess"
+        <view class='message'>手持身份证照片:
+            <wux-upload disabled="{{sdisable}}" count="1" style="margin:20rpx" header="{{header}}" list-type="picture-card" file-list="{{ uploadSPhotos }}"
+                    url="{{uploadImageUrl}}" bind:change="onSChange" bind:success="onSSuccess"
                     showRemoveIcon="{{showRemoveIcon}}"
                     bind:fail="onSFail" bind:complete="onSComplete" bind:preview="onSRemove">
-            <text style="font-size: 24rpx;color: #999999">身份证反面</text>
-        </wux-upload>
-        <text style="font-size: 24rpx;color: #999999;margin-top: 40rpx">提交即代表同意《泫氏小哥注册协议》</text>
+               <text style="font-size: 40rpx;color: #999999">+</text>
+            </wux-upload>
+        </view>
+        <text style="font-size: 24rpx;color: #999999;margin-top: 40rpx;margin-left:30rpx;">提交即代表同意《泫氏小哥注册协议》</text>
         <button form-type="submit" style="color: #ffffff;font-size: 28rpx;margin-top: 80rpx">提交</button>
     </form>
-
     <wux-toast id="wux-toast" />
 </view>

@@ -16,7 +16,8 @@
     "pages/presentRecord/presentRecord",
     "pages/complain/complain",
     "pages/sermanorder/sermanorder",
-    "pages/findpass/findpass"
+    "pages/findpass/findpass",
+    "pages/register/register"
   ],
   "window":{
     "backgroundTextStyle":"light",

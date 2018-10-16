@@ -33,32 +33,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
-				{
-					"id": -1,
-					"name": "repair-1",
-					"pathName": "pages/repair-1/repair-1",
-					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "repair-2",
-					"pathName": "pages/repair-2/repair-2",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "repair",
-					"pathName": "pages/repair/repair",
-					"query": ""
-				},
-				{
-					"id": 3,
-					"name": "pc2",
-					"pathName": "pages/PC-2/PC-2",
-					"query": "pc2"
-				},
 				{
 					"id": -1,
 					"name": "evaluate",
@@ -86,7 +62,43 @@
 				{
 					"id": -1,
 					"name": "找回密码",
-					"pathName": "pages/findpass/findpass"
+					"pathName": "pages/findpass/findpass",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myorder",
+					"pathName": "pages/myorder/myorder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "brand",
+					"pathName": "pages/brand/brand",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "category",
+					"pathName": "pages/category/category",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "repair",
+					"pathName": "pages/repair/repair",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index"
 				}
 			]
 		}

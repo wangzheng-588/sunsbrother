@@ -12,9 +12,10 @@
     <view class='menu'>
       <image src='{{item.cateImage}}'></image>{{item.cateName}}</view>
   </view>
-  <view class='menu'  data-index='{{4}}' bindtap="goToCatePage">
+  <view class='menu' data-index='{{4}}' bindtap="goToCatePage">
     <image src='/images/qt.png'></image>其他</view>
 </view>
+<wux-notice-bar class='proclamation' loop='true' trailing="1500" content='这是一条测试公告是否可以滚动、滚动速度的文字dsfhdhfdhvkjcnvkjn;shefihsdkbckjxbc'/>
 <view class='head'>特别推荐</view>
 <view class='container'>
   <block wx:for="{{reProductList}}" wx:key='index'>

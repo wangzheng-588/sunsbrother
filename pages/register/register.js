@@ -142,6 +142,12 @@ Page({
                         color: '#fff',
                         text: '注册成功'
                     });
+                wx.redirectTo({
+                  url: '../login/login',
+                  success: function(res) {},
+                  fail: function(res) {},
+                  complete: function(res) {},
+                })
                 } else {
                     $wuxToast().show({
                         type: 'text',

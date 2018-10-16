@@ -21,7 +21,6 @@
   height: 80rpx;
   display: flex;
   align-items: center;
-  margin-left:80rpx; 
 }  
 /*菜单栏list的item被选中时*/  
 .nav .nav_items.active{   

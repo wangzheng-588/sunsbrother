@@ -1,5 +1,6 @@
 <view class="wux-class wux-notice-bar" wx:if="{{ visible }}" bindtap="onClick">
     <view class="wux-notice-bar__hd">
+        <view class='proclamation'>公告</view>
         <image class="wux-notice-bar__icon" src="{{ icon }}" wx:if="{{ icon }}" />
         <block wx:else>
             <slot name="header"></slot>

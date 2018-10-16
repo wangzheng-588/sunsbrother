@@ -47,6 +47,7 @@ page{
   line-height: 98rpx;
 }
 .herf{
+  height: 60rpx;
   margin: auto;
   margin-top: 24rpx;
 }

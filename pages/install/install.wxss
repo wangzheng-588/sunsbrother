@@ -1,23 +1,27 @@
 /* pages/address/address.wxss */
+
 /*备注栏*/
-.remarks{
+
+.remarks {
   padding-top: 22rpx;
   width: 100%;
   display: flex;
-  background: #FFF;
-  font-size:30rpx;
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  color:#333;
+  background: #fff;
+  font-size: 30rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: #333;
   text-indent: 0.8rem;
-  margin-top:1px;
+  margin-top: 1px;
 }
-.rm{
+
+.rm {
+  width: 90%;
   color: #333;
   box-sizing: border-box;
   padding: 8rpx;
-   font-size:30rpx;
-   height: 270rpx;
-   margin-right: 30rpx;
-   color: #999;
+  font-size: 30rpx;
+  height: 270rpx;
+  margin-right: 30rpx;
+  color: #999;
 }

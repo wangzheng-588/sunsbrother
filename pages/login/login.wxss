@@ -52,15 +52,17 @@ image{
     width: 80rpx;
     height: 80rpx;
 }
-.text{
+.fast{
     width: 120rpx;
     margin: 20rpx auto;
     font-size: 28rpx;
     color: #999;
+    text-align: center;
 }
 .btnweixin{
     margin-top: 80rpx;
     background-color: transparent;
+    
     width: 80rpx;
     height: 80rpx;
     padding:0 20rpx;

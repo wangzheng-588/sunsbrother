@@ -1,29 +1,27 @@
 /* pages/repair/repair.wxss */
 .container{
-  padding: 0rpx 40rpx 0 40rpx;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background: #FFFFFF;
   margin-top: 1px;
 }
 .title{
   width: 100%;
   height: 80rpx;
-  font-size:28rpx;
+  font-size: 30rpx;
   font-family:MicrosoftYaHei;
   font-weight:400;
   color:rgba(51,51,51,1);
   line-height:80rpx;
   display: flex;
   align-items: center;
+  background: #FFF;
+  padding-left: 40rpx;
+  margin-top: 1px;
 }
-
 
 .channel-active{
   box-sizing: border-box;
-  width: 250rpx;
-  height: 50rpx;
   background:rgba(79,143,251,1);
   border-radius:6px;
   color: #FFF;
@@ -32,7 +30,6 @@
 
 .fail-active{
   box-sizing: border-box;
-  height: 50rpx;
   padding: 0 11rpx 0 11rpx;
   margin-left: 10rpx;
   background:rgba(79,143,251,1);
@@ -43,6 +40,7 @@
   text-align: center;
   font-weight:400;
   line-height:50rpx;
+  min-width: 100rpx;
 }
 
 .repair-active{
@@ -80,12 +78,14 @@
   box-sizing: border-box;
 }
 .rm{
+  width: 90%;
   border: #666666 1rpx solid;
-  width: 100%;
   font-size:30rpx;
   height: 270rpx;
   color: #333333;
-  padding: 15rpx 0rpx 15rpx 0rpx
+  margin: auto;
+  border-radius: 3;
+  margin-bottom: 20rpx;
 }
 
 .wrap{
@@ -123,6 +123,7 @@
 .fail-case{
   display: flex;
   flex-wrap: wrap;
+  background: #FFF;
 }
 
 .fail-case-item{
@@ -141,4 +142,8 @@
 }
 .button{
   margin-top: 40rpx;
+}
+
+.tui-picker-detail{
+  display: flex;
 }

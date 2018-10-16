@@ -15,6 +15,6 @@
   </block>
 </view>
 <view class='footer'>
-  <view class="button" bindtap='jumpToInstallPage'>安装</view>
-  <view class="button r" bindtap='jumpToRepairPage'>维修</view>
+  <view class="{{hover? 'btn-hover' : 'btn'}}" bindtap='jumpToInstallPage'>安装</view>
+  <view class="{{hover? 'btn-hover' : 'btn'}}" bindtap='jumpToRepairPage'>维修</view>
 </view>

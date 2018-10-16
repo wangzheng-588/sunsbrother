@@ -66,9 +66,9 @@ Page({
     getOrderList(orderStatus) {
         let params = {}
         if (orderStatus === undefined || orderStatus === null) {
-            params.userId = "1"
+          params.userId = app.globalData.userId
         } else {
-            params.userId = "1"
+          params.userId = app.globalData.userId
             params.orderStatus = orderStatus
         }
         api._post('/front/order/getOrderListForUserId',app.globalData.accessToken, params).then(res => {

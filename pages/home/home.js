@@ -8,7 +8,8 @@ Page({
      */
     data: {
         userIsSer: false,
-        nickname: ''
+        nickname: '',
+        userInfo: {}
     },
 
     /**
@@ -23,7 +24,8 @@ Page({
                 console.log(res)
                 this.setData({
                     nickname: res.data.userNickname,
-                    userIsSer: res.data.userIsSer
+                    userIsSer: res.data.userIsSer,
+                    userInfo: res.data.userHeadUrl
                 })
             }
         })

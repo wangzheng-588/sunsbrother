@@ -62,7 +62,7 @@ page{ height: 100%;}
 }
 
 /*底部按钮*/
-.button{
+.btn{
   width: 50%;
   height: 98rpx;
   font-size:30rpx;
@@ -71,7 +71,14 @@ page{ height: 100%;}
   text-align: center;
   line-height: 98rpx;
 }
-.r{
+.btn-hover{
+  width: 50%;
+  height: 98rpx;
+  font-size:30rpx;
+  font-family:MicrosoftYaHei;
+  font-weight:400; 
+  text-align: center;
+  line-height: 98rpx;
   background: #4F8FFB;
   color: #FFFFFF;
 }

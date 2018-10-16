@@ -75,7 +75,7 @@
   border-style: dashed;
 }
 .wux-upload--picture-card .wux-upload__file--error {
-  border-color: #f5222d;
+  border-color: #2af41b;
 }
 .wux-upload--picture-card .wux-upload__thumb {
   width: 100%;
